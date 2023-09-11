@@ -22,37 +22,27 @@
     window.$docsify = {
       name: '',
       repo: '',
-	
 	   coverpage:true,
 	   loadNavbar: true,
 	
 	plugins: [
       function (hook, vm) {
         hook.beforeEach(function (content) {
-          let sidebar = [];
+          let sidebar = '';
+          // 提取一级标题
           const regex = /^#\s+(.*)$/gm;
           let match;
           while ((match = regex.exec(content)) != null) {
-            const title = match[1];
-            const slug = title.toLowerCase().replace(/\s+/g, '-');
-            sidebar.push({ title, slug });
+            sidebar += '- [' + match[1] + '](#' + match[1].toLowerCase().replace(/\s+/g, '-') + ')\n';
           }
+          // 添加侧边栏内容
           vm.sidebar = sidebar;
           return content;
         });
       }
     ]
-    };
-	function docsifyInitSidebar() {
-    setTimeout(function () {
-      const headings = Array.from(document.querySelectorAll('.sidebar-nav h1'));
-      headings.forEach(heading => {
-        const linkItem = document.createElement('div');
-        linkItem.innerHTML = `<a href="#${heading.id}">${heading.innerText}</a>`;
-        heading.appendChild(linkItem);
-      });
-    }, 0);
-  }
+  };
+
   </script>
   <!-- Docsify v4 -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
