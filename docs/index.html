@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <title>Document</title>
@@ -9,14 +9,50 @@
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
 </head>
 <body>
+
+
+	<nav>
+		<a href="#/">EN</a>
+		<a href="#/zh-cn/">中文</a>
+	</nav>
+
   <div id="app"></div>
+  
   <script>
     window.$docsify = {
       name: '',
       repo: '',
-	   loadSidebar: true,
-	   coverpage:true
-    }
+	
+	   coverpage:true,
+	   loadNavbar: true,
+	
+	plugins: [
+      function (hook, vm) {
+        hook.beforeEach(function (content) {
+          let sidebar = [];
+          const regex = /^#\s+(.*)$/gm;
+          let match;
+          while ((match = regex.exec(content)) != null) {
+            const title = match[1];
+            const slug = title.toLowerCase().replace(/\s+/g, '-');
+            sidebar.push({ title, slug });
+          }
+          vm.sidebar = sidebar;
+          return content;
+        });
+      }
+    ]
+    };
+	function docsifyInitSidebar() {
+    setTimeout(function () {
+      const headings = Array.from(document.querySelectorAll('.sidebar-nav h1'));
+      headings.forEach(heading => {
+        const linkItem = document.createElement('div');
+        linkItem.innerHTML = `<a href="#${heading.id}">${heading.innerText}</a>`;
+        heading.appendChild(linkItem);
+      });
+    }, 0);
+  }
   </script>
   <!-- Docsify v4 -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
