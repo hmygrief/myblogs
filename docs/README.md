@@ -72,7 +72,7 @@
 >
 >  **数据量相对较少，是GB级别的，面向业务开发人员** 
 
-结构化数据，半结构化数据.....
+结构化数据，半结构化数据...
 
 事务
 
@@ -257,11 +257,11 @@ https://baijiahao.baidu.com/s?id=1771016309102798991&wfr=spider&for=pc
 
 # 离线项目
 
-![img](E:\Typora\typora-images\wps1-1694235528512.png)
+![img](.\typora-images\wps1-1694235528512.png)
 
 ## 离线架构
 
-![1694440684529](E:\Typora\typora-images\1694440684529.png)
+![1694440684529](.\typora-images\1694440684529.png)
 
 
 
@@ -277,7 +277,7 @@ https://baijiahao.baidu.com/s?id=1771016309102798991&wfr=spider&for=pc
 
 ## spark实时架构
 
-![1694440744026](E:\Typora\typora-images\1694440744026.png)
+![1694440744026](.\typora-images\1694440744026.png)
 
 
 
@@ -321,7 +321,7 @@ https://baijiahao.baidu.com/s?id=1771016309102798991&wfr=spider&for=pc
 
 > 通过flume对数据进行采集，传送给kafka
 
-![1694441445100](E:\Typora\typora-images\1694441445100.png)
+![1694441445100](.\typora-images\1694441445100.png)
 
 日志数据是用户启动，浏览页面，点击等产生的
 
@@ -351,7 +351,7 @@ rdd.asInstanceOf[HasOffsetRanges].offsetRanges
 
 > 业务数据一般是从数据库中进行同步，使用maxwell
 
-![1694487512103](E:\Typora\typora-images\1694487512103.png)
+![1694487512103](.\typora-images\1694487512103.png)
 
 
 
@@ -406,7 +406,7 @@ SQL语言：
 
 ## sql的执行流程
 
-![1694406669731](E:\Typora\typora-images\1694406669731.png)
+![1694406669731](.\typora-images\1694406669731.png)
 
 > MySQL 8.0 版本后删除了缓存的功能，官方也是认为该功能在实际的应用场景比较少，所以干脆直接删掉了。 
 
@@ -490,7 +490,7 @@ Maxwell 是由美国 Zendesk 公司开源，用 **Java 编写**的 MySQL 变更�
 
 ## 讲述一下hive的架构原理
 
-![1694410603651](E:\Typora\typora-images\1694410603651.png)
+![1694410603651](.\typora-images\1694410603651.png)
 
 > 用户通过beeline或jdbc等连接hive【本地模式不需要通过HiveServer2】
 >
@@ -801,9 +801,9 @@ set hive.groupby.skewindata=true;
 
 3)调整sql语句
 
-![1694438757353](E:\Typora\typora-images\1694438757353.png)
+![1694438757353](.\typora-images\1694438757353.png)
 
-![1694438772120](E:\Typora\typora-images\1694438772120.png)
+![1694438772120](.\typora-images\1694438772120.png)
 
 通过  添加随机数 + 扩容实现
 
@@ -913,7 +913,7 @@ Kafka是一个**分布式**的基于发布/订阅模式的**消息队列**，分
 
 
 
-![1694239682191](E:\Typora\typora-images\1694239682191.png)
+![1694239682191](.\typora-images\1694239682191.png)
 
 > ids/[0,1,2]:代表zk集群中的broker节点
 
@@ -955,7 +955,7 @@ Kafka是一个**分布式**的基于发布/订阅模式的**消息队列**，分
 
 使用kafka提供的事务【需要先配置并开启事务日志，并且**开启幂等性**】+消费端支持事务
 
-![1694262134315](E:\Typora\typora-images\1694262134315.png)
+![1694262134315](.\typora-images\1694262134315.png)
 
 2）幂等【下游组件】+至少一次【核心：可以重复消费，但是下游只对重复数据处理一次】
 
@@ -977,7 +977,7 @@ Kafka是一个**分布式**的基于发布/订阅模式的**消息队列**，分
 
 ### 消费端
 
-![1694316644056](E:\Typora\typora-images\1694316644056.png)
+![1694316644056](.\typora-images\1694316644056.png)
 
 使用场景：
 
@@ -1023,7 +1023,7 @@ Kafka是一个**分布式**的基于发布/订阅模式的**消息队列**，分
 > + 设置retries，保证其大于0
 > + 设置acks，保证其为-1
 
-![1694488713908](E:\Typora\typora-images\1694488713908.png)
+![1694488713908](.\typora-images\1694488713908.png)
 
 
 
@@ -1081,7 +1081,7 @@ broker，通过自动副本平衡，topic分区
 
 1）生产者端
 
-![1694325406553](E:\Typora\typora-images\1694325406553.png)
+![1694325406553](.\typora-images\1694325406553.png)
 
 2）broker端
 
@@ -1165,7 +1165,7 @@ flume的扩展性不行，而kafka提供了强大的扩展api
 
 同步发送流程
 
-![1694242115310](E:\Typora\typora-images\1694242115310.png)
+![1694242115310](.\typora-images\1694242115310.png)
 
 **InFlightRequests，默认每个 Broker最多缓存5个请求**【保证这5个请求都是有序的】 ，
 
@@ -1330,7 +1330,7 @@ acks=-1，生产者发送过来数据Leader和ISR队列里面所有Follwer应答
 
 {“brokerid”:0}  辅助选举Leader
 
-![1694265678670](E:\Typora\typora-images\1694265678670.png)
+![1694265678670](.\typora-images\1694265678670.png)
 
 1）broker启动后去zk注册
 
@@ -1412,11 +1412,11 @@ Controller Leader，负责管理集群 broker 的上下线，所有 **topic 的�
 
 ### Leader和Follower故障处理细节
 
-![1694270669518](E:\Typora\typora-images\1694270669518.png)
+![1694270669518](.\typora-images\1694270669518.png)
 
 > 为了保证数据一致性，所以可能需要丢失或重复数据
 
-![1694270792252](E:\Typora\typora-images\1694270792252.png)
+![1694270792252](.\typora-images\1694270792252.png)
 
 
 
@@ -1424,7 +1424,7 @@ Controller Leader，负责管理集群 broker 的上下线，所有 **topic 的�
 
 > 根据不平衡数推断不平衡率，满足后再进行再平衡
 
-![1694272376143](E:\Typora\typora-images\1694272376143.png)
+![1694272376143](.\typora-images\1694272376143.png)
 
 
 
@@ -1442,7 +1442,7 @@ Controller Leader，负责管理集群 broker 的上下线，所有 **topic 的�
 >
 > index中，index的名是当前segment第一条数据绝对offset，而index数据中，存储的是相对offset
 
-![1694273093516](E:\Typora\typora-images\1694273093516.png)
+![1694273093516](.\typora-images\1694273093516.png)
 
 
 
@@ -1498,7 +1498,7 @@ Kafka 中提供的日志清理策略有 delete 和 compact 两种。
 >
 > 这样的拷贝操作会增加CPU和内存的开销。而**零拷贝技术通过直接将数据从磁盘或网络缓冲区传输到目标缓冲区，避免了中间的拷贝操作**，减少了CPU和内存的使用，提高了数据传输的效率。 
 
-![1694274693473](E:\Typora\typora-images\1694274693473.png)
+![1694274693473](.\typora-images\1694274693473.png)
 
 
 
@@ -1510,9 +1510,9 @@ Kafka 中提供的日志清理策略有 delete 和 compact 两种。
 
 > 消费者采取主动拉取数据的方式获取数据【如果使用push方式，broker的发送速率不好确定】
 
-![1694309840791](E:\Typora\typora-images\1694309840791.png)
+![1694309840791](.\typora-images\1694309840791.png)
 
-![1694310242163](E:\Typora\typora-images\1694310242163.png)
+![1694310242163](.\typora-images\1694310242163.png)
 
 >1. 选举leader的算法通常基于以下几个因素进行评估：
 >
@@ -1534,7 +1534,7 @@ Kafka 中提供的日志清理策略有 delete 和 compact 两种。
 
 7）每个消费者和coordinator保持心跳（默认3秒），一旦超时（session.timeout.ms=45s），消费者会被移除，并触发**再平衡**【topic副本也存在再平衡】，或者消费者处理消息的时间过长（max.poil.interval.ms 5分钟），也会触发再平衡。
 
-![1694311253962](E:\Typora\typora-images\1694311253962.png)
+![1694311253962](.\typora-images\1694311253962.png)
 
 超过50M，或者500ms，达到500条，会返回数据。
 
